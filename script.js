@@ -2188,6 +2188,3 @@ console.log("Stellantis code from here");
 
 console.log("September - 12 - 2023");
 console.log("Stellantis code from here");
-
-console.log("September - 12 - 2023");
-console.log("Stellantis code from here");
