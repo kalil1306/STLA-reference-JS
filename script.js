@@ -2185,3 +2185,38 @@ console.log(result);
 */
 
 console.log("Stellantis reference code");
+
+var requestCID = {
+    "EMPLID":"1359951",
+    "TID":"T9951S0",
+    "FIRST_NAME":"SARAH",
+    "CH_MID_INIT":"L",
+    "LAST_NAME":"BARANSKI",
+    "EMPL_TYPE_CODE":"NBU",
+    "EMPL_STATUS_DESCR":"ACTIVE",
+    "COUNTRY":"USA",
+    "CH_CORPLOC":"1100"
+}
+
+
+/*
+stringify() takes a JavaScript object and then transforms it into a JSON string. 
+JSON. parse() takes a JSON string and then transforms it into a JavaScript object.
+*/
+
+var convertToJSON = JSON.stringify(requestCID);
+console.log('JSON Stingify =' + convertToJSON); // its a JSON string
+console.log('JSON Parse =' + JSON.parse(convertToJSON)) // while converting JSON string to JS object it will stored inside the window
+
+var objOfObj = JSON.parse(convertToJSON); // o/p : JSON Parse =[object Object]
+
+//How to get the key and values pairs from object of object by with the help of "for in" loop
+
+
+
+for (obj in objOfObj){
+    console.log(`Key : ${obj} and Value : ${objOfObj[obj]}`)
+}
+
+console.log(requestCID);
+console.log(typeof(requestCID))
