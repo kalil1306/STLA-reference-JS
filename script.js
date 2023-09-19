@@ -2219,4 +2219,13 @@ for (obj in objOfObj){
 }
 
 console.log(requestCID);
-console.log(typeof(requestCID))
+console.log(typeof(requestCID));
+console.log('-------------------------------------------------------------------------------------');
+
+//Generating 6 digits random code:
+
+var randomNumber = Math.floor(Math.random() * 1000000);
+var couponCode = randomNumber.toFixed();
+console.log(couponCode);
+
+console.log('-------------------------------------------------------------------------------------');
