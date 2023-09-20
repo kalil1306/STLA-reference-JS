@@ -2223,7 +2223,8 @@ console.log(typeof(requestCID));
 console.log('-------------------------------------------------------------------------------------');
 
 //Generating 6 digits random code:
-
+//floor - Math.floor() rounds a number DOWN to the nearest integer ie.., if it is 4.9 then o/p will be 4
+//random - The Math.random() static method returns a floating-point, pseudo-random number that's greater than or equal to 0 and less than 1
 var randomNumber = Math.floor(Math.random() * 1000000);
 var couponCode = randomNumber.toFixed();
 console.log(couponCode);
