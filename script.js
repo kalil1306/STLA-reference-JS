@@ -2230,3 +2230,35 @@ var couponCode = randomNumber.toFixed();
 console.log(couponCode);
 
 console.log('-------------------------------------------------------------------------------------');
+
+var dishes = {
+    'pizza' : [
+        {
+            'id' : 1,
+            'name' : 'Neapolitan pizza',
+            'topings' : ['Mozzarella', 'Tomatoes', 'Basil'] 
+        }, 
+        {
+            'id' : 2,
+            'name' : 'New York-style pizza',
+            'topings' : ['Mozzarella', 'Tomatoes', 'Basil'] 
+        }
+    ]
+}
+
+console.log(dishes)
+console.log(typeof(dishes))
+
+var payloadOutput = JSON.stringify(dishes);
+console.log(payloadOutput)
+
+var getInput = JSON.parse(payloadOutput)
+console.log(getInput)
+
+for (getDetails in getInput){
+    console.log(getInput[getDetails]);
+    console.log(getDetails)
+    console.log(getInput)
+} 
+
+console.log('-------------------------------------------------------------------------------------');
