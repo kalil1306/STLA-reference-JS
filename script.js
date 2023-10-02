@@ -2187,17 +2187,16 @@ console.log(result);
 console.log("Stellantis reference code");
 
 var requestCID = {
-    "EMPLID":"1359951",
-    "TID":"T9951S0",
-    "FIRST_NAME":"SARAH",
-    "CH_MID_INIT":"L",
-    "LAST_NAME":"BARANSKI",
-    "EMPL_TYPE_CODE":"NBU",
-    "EMPL_STATUS_DESCR":"ACTIVE",
-    "COUNTRY":"USA",
-    "CH_CORPLOC":"1100"
-}
-
+  EMPLID: "1359951",
+  TID: "T9951S0",
+  FIRST_NAME: "SARAH",
+  CH_MID_INIT: "L",
+  LAST_NAME: "BARANSKI",
+  EMPL_TYPE_CODE: "NBU",
+  EMPL_STATUS_DESCR: "ACTIVE",
+  COUNTRY: "USA",
+  CH_CORPLOC: "1100",
+};
 
 /*
 stringify() takes a JavaScript object and then transforms it into a JSON string. 
@@ -2205,22 +2204,26 @@ JSON. parse() takes a JSON string and then transforms it into a JavaScript objec
 */
 
 var convertToJSON = JSON.stringify(requestCID);
-console.log('JSON Stingify =' + convertToJSON); // its a JSON string
-console.log('JSON Parse =' + JSON.parse(convertToJSON)) // while converting JSON string to JS object it will stored inside the window
+console.log("JSON Stingify =" + convertToJSON); // its a JSON string
+console.log("JSON Parse 1 =" + JSON.parse(convertToJSON)); // while converting JSON string to JS object it will stored inside the window
+
+var displayJson = JSON.parse(convertToJSON);
+console.log(displayJson)
+console.log(displayJson.TID)
 
 var objOfObj = JSON.parse(convertToJSON); // o/p : JSON Parse =[object Object]
 
 //How to get the key and values pairs from object of object by with the help of "for in" loop
 
-
-
-for (obj in objOfObj){
-    console.log(`Key : ${obj} and Value : ${objOfObj[obj]}`)
+for (obj in objOfObj) {
+  console.log(`Key : ${obj} and Value : ${objOfObj[obj]}`);
 }
 
 console.log(requestCID);
-console.log(typeof(requestCID));
-console.log('-------------------------------------------------------------------------------------');
+console.log(typeof requestCID);
+console.log(
+  "-------------------------------------------------------------------------------------"
+);
 
 //Generating 6 digits random code:
 //floor - Math.floor() rounds a number DOWN to the nearest integer ie.., if it is 4.9 then o/p will be 4
@@ -2229,37 +2232,50 @@ var randomNumber = Math.floor(Math.random() * 1000000);
 var couponCode = randomNumber.toFixed();
 console.log(couponCode);
 
-console.log('-------------------------------------------------------------------------------------');
+console.log(
+  "-------------------------------------------------------------------------------------"
+);
 
 var dishes = {
-    'pizza' : [
-        {
-            'id' : 1,
-            'name' : 'Neapolitan pizza',
-            'topings' : ['Mozzarella', 'Tomatoes', 'Basil'] 
-        }, 
-        {
-            'id' : 2,
-            'name' : 'New York-style pizza',
-            'topings' : ['Mozzarella', 'Tomatoes', 'Basil'] 
-        }
-    ]
-}
+  pizza: [
+    {
+      id: 1,
+      name: "Neapolitan pizza",
+      topings: ["Mozzarella", "Tomatoes", "Basil"],
+    },
+    {
+      id: 2,
+      name: "New York-style pizza",
+      topings: ["Mozzarella", "Tomatoes", "Basil"],
+    },
+  ],
+};
 
-console.log(dishes)
-console.log(typeof(dishes))
+console.log(dishes);
+console.log(typeof dishes);
 
 var payloadOutput = JSON.stringify(dishes);
-console.log(payloadOutput)
+console.log(payloadOutput);
 
-var getInput = JSON.parse(payloadOutput)
-console.log(getInput)
+var getInput = JSON.parse(payloadOutput);
+console.log(getInput);
 
-for (getDetails in getInput){
-    console.log(getInput[getDetails]);
-    console.log(getDetails)
-    console.log(getInput)
-} 
+for (getDetails in getInput) {
+  console.log(getInput[getDetails]);
+  console.log(getDetails);
+  console.log(getInput);
+}
 
-console.log('-------------------------------------------------------------------------------------');
-console.log('Test')
+console.log(
+  "-------------------------------------------------------------------------------------"
+);
+
+var emptyObj = {};
+
+emptyObj.name = "Kalilur Rahman";
+emptyObj.role = "Servicenow Developer";
+emptyObj.experience = 3;
+
+console.log("push keys and value to the object = " + emptyObj); //it says output as [object Object]
+
+var displayObj = JSON.stringify(emptyObj);
