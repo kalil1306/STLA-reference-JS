@@ -1272,6 +1272,8 @@ For Each Loop : (Array can iterate)
 Note :  It has 3 parameters : value, index, array
 By Arrow function :
 
+const arr = ["kalil", "kasheef", "kareem", "zaynab", "zehra"];
+
 arr.forEach((value, index, actArr)=>{
     console.log(value, index, actArr)
 })
@@ -1601,7 +1603,7 @@ o/p : kasheef
 let users = {
     name : "kalil",
     age : 24,
-    getDetails(){
+    test : getDetails(){
         console.log(this.name); // it prints only the parent object key
     }
 }
@@ -2197,19 +2199,30 @@ var requestCID = {
   COUNTRY: "USA",
   CH_CORPLOC: "1100",
 };
+var message = requestCID.CH_CORPLOC;
+
+console.log(message);
+
+console.log(typeof requestCID);
+
+requestCID.FIRST_NAME = "Sangeetha";
+
+console.log(requestCID);
 
 /*
 stringify() takes a JavaScript object and then transforms it into a JSON string. 
 JSON. parse() takes a JSON string and then transforms it into a JavaScript object.
 */
 
+console.log("kalil = ", window);
+
 var convertToJSON = JSON.stringify(requestCID);
 console.log("JSON Stingify =" + convertToJSON); // its a JSON string
 console.log("JSON Parse 1 =" + JSON.parse(convertToJSON)); // while converting JSON string to JS object it will stored inside the window
 
 var displayJson = JSON.parse(convertToJSON);
-console.log(displayJson)
-console.log(displayJson.TID)
+console.log(displayJson);
+console.log(displayJson.TID);
 
 var objOfObj = JSON.parse(convertToJSON); // o/p : JSON Parse =[object Object]
 
@@ -2235,6 +2248,8 @@ console.log(couponCode);
 console.log(
   "-------------------------------------------------------------------------------------"
 );
+
+/*
 
 var dishes = {
   pizza: [
@@ -2279,3 +2294,190 @@ emptyObj.experience = 3;
 console.log("push keys and value to the object = " + emptyObj); //it says output as [object Object]
 
 var displayObj = JSON.stringify(emptyObj);
+
+
+var testDetails = {"stla_parameters":{"application_id":"7261","application_name":"Driveit","environment":"dev","stla_region":"EE"},"account_access":{"view":"KALIL.RO","standard":"KALIL.RW","manager":"KALIL.MANAGER"},"aws_parameters":{"aws_region":"eu-west-3","aws_azs":3,"network_model":"onprem_ext_dedicated"},"drive_it_parameters":{"ticket_identifier":"TASK6202678","requester":{"tid":"T0439M0","first_name":"MALINI","last_name":"DODABALLAPUR"}},"request_type":"general"};
+console.log(testDetails.account_access)
+
+forEach loop : 
+
+you canuse normal function as well as arrow function
+
+const arr = ["kalil", "kasheef", "kareem", "zaynab", "zehra"];
+
+arr.forEach((value, index, actArr)=>{
+    console.log(value, index, actArr)
+})
+
+*/
+
+var attachment = {};
+var listOfObj = [];
+
+attachment.sys_id = "50e399b81b69b1905aeddb1dcd4bcbcc";
+attachment.file_name = "icon.png";
+
+listOfObj.push(attachment);
+
+console.log(attachment);
+console.log(typeof attachment); //object
+console.log(listOfObj);
+
+var objects = [];
+listOfObj.forEach(function (obj) {
+  objects.push({
+    label: obj.file_name,
+    name: obj.sys_id,
+  });
+});
+
+var outputs = {
+  data: objects,
+};
+
+console.log(outputs);
+
+/*
+o/p :
+
+{data: Array(1)}
+data: Array(1)
+0 : {label: 'icon.png', name: '50e399b81b69b1905aeddb1dcd4bcbcc'}
+length : 1
+[[Prototype]] : Array(0)
+[[Prototype]] : Object
+*/
+
+/*
+const arr = ["kalil", "kasheef", "kareem", "zaynab", "zehra"];
+
+arr.forEach((value, index, actArr)=>{
+    console.log(value, index, actArr)
+})
+console.log("---------------------------------------------------------------------------")
+
+multi line string - see the below example
+slice :
+slice (1) - it will from first index from the array
+eg..,
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1);
+
+o/p : Orange,Lemon,Apple,Mango
+-----------------------------------------------------------------------------------------
+slice(1, 3) : it wil slice from index position 1 to 2 not 3rd index[slice(1, 3) = slice(1, 3-1)]
+o/p : Orange,Lemon
+-----------------------------------------------------------------------------------------
+slice(-4) : it will slice from reverse side of the array
+Note : reverse index starts with -1 in the array
+eg..,
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const myBest = fruits.slice(-4);
+
+o/p : Orange,Lemon,Apple,Mango
+---------------------------------------------------------------------------------------
+slice(-3,-1) : it wont print -1 element from the array
+o/p : Orange,Lemon,Apple
+
+*/
+
+/*
+
+var newline = '\n';
+var getOnlyNotes = "2023-10-26 21:13:22 - System Administrator (Work notes)\n\
+test - 1\n\
+test - 2";
+console.log(getOnlyNotes)
+console.log(getOnlyNotes.split(newline).slice(1).join(newline));
+
+o/p : 
+
+2023-10-26 21:13:22 - System Administrator (Work notes)
+test - 1
+test - 2
+........................................................................................
+test - 1
+test - 2
+
+Adding zero before the integer for debugging statement :
+
+function myFunc(number, digits) {
+    var num = number + "";
+    console.log(num.length)
+    while (num.length < digits)
+       num = "0" + num;
+
+    return num;
+  }
+  
+  
+  let result = myFunc(64, 3);
+  console.log(result)
+
+
+  var empArr = [];
+
+for(let i = 0; i < 3; i++){
+    //console.log("value of i = ", i);
+    for(let j = i + 1; j < 4; j++){
+        //console.log("value of j", j);
+
+        empArr.push([i, j]);
+    }
+}
+console.log(empArr)
+o/p : 
+//(6) [Array(2), Array(2), Array(2), Array(2), Array(2), Array(2)]
+
+var empArr1 = [['cat', 'dog'], ['camel', 'elephant'], ['snow', 'js']];
+console.log(empArr1[0])
+console.log(typeof(empArr[1]));
+
+var empArr2 = ['q', 'w', 'r'];
+console.log(typeof(empArr2))
+
+var empObj = {
+    name : "kalil",
+    role : "SNOW dev"
+}
+
+console.log(empObj.role)
+console.log(typeof(empObj))
+
+
+var empStr = "mr3_string_valueLIKEte";
+console.log(empStr.length) // o / p : 22
+
+function consoelName(){
+    let naming = "kalil";
+    //console.log(naming);
+}
+consoelName(naming)
+//Uncaught ReferenceError: naming is not defined
+//consoelName();
+
+*/
+
+var user_markets =
+  "ddf06ecedbbe79d0c531a9c813961984,d6d662c6dbfe79d0c531a9c81396198b,5d9f06ecedbbe79d0c531a9c813961983,15f06ecedbbe79d0c531a9c813961985";
+var g10_markets =
+  "ddf06ecedbbe79d0c531a9c813961984,1df06ecedbbe79d0c531a9c813961987,95f06ecedbbe79d0c531a9c813961988,d9f06ecedbbe79d0c531a9c813961983";
+
+var splitUserMarkets = user_markets.split(",");
+var splitG10Markets = g10_markets.split(",");
+
+// console.log(splitG10Markets);
+// console.log(splitUserMarkets);
+
+var group = "";
+for (var i = 0; i < splitG10Markets.length; i++) {
+  console.log(splitG10Markets[i]);
+  if (splitUserMarkets.indexOf(splitG10Markets[i]) >= 0) {
+    group = "G10";
+    break;
+  } else {
+    group = "user selected";
+  }
+}
+
+console.log(group);
