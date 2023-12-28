@@ -2186,18 +2186,25 @@ console.log(result);
 
 */
 
-console.log("Stellantis reference code");
+console.log("------------- Stellantis reference code ---------------------");
+
+
+
+/*
+stringify() takes a JavaScript object and then transforms it into a JSON string. 
+JSON. parse() takes a JSON string and then transforms it into a JavaScript object.
+
 
 var requestCID = {
-  EMPLID: "1359951",
-  TID: "T9951S0",
-  FIRST_NAME: "SARAH",
-  CH_MID_INIT: "L",
-  LAST_NAME: "BARANSKI",
-  EMPL_TYPE_CODE: "NBU",
-  EMPL_STATUS_DESCR: "ACTIVE",
-  COUNTRY: "USA",
-  CH_CORPLOC: "1100",
+    EMPLID: "1359951",
+    TID: "T9951S0",
+    FIRST_NAME: "SARAH",
+    CH_MID_INIT: "L",
+    LAST_NAME: "BARANSKI",
+    EMPL_TYPE_CODE: "NBU",
+    EMPL_STATUS_DESCR: "ACTIVE",
+    COUNTRY: "USA",
+    CH_CORPLOC: "1100",
 };
 var message = requestCID.CH_CORPLOC;
 
@@ -2208,11 +2215,6 @@ console.log(typeof requestCID);
 requestCID.FIRST_NAME = "Sangeetha";
 
 console.log(requestCID);
-
-/*
-stringify() takes a JavaScript object and then transforms it into a JSON string. 
-JSON. parse() takes a JSON string and then transforms it into a JavaScript object.
-*/
 
 console.log("kalil = ", window);
 
@@ -2229,14 +2231,19 @@ var objOfObj = JSON.parse(convertToJSON); // o/p : JSON Parse =[object Object]
 //How to get the key and values pairs from object of object by with the help of "for in" loop
 
 for (obj in objOfObj) {
-  console.log(`Key : ${obj} and Value : ${objOfObj[obj]}`);
+    console.log(`Key : ${obj} and Value : ${objOfObj[obj]} and JSON object ${objOfObj}`);
 }
 
 console.log(requestCID);
 console.log(typeof requestCID);
 console.log(
-  "-------------------------------------------------------------------------------------"
+    "-------------------------------------------------------------------------------------"
 );
+
+
+*/
+
+
 
 //Generating 6 digits random code:
 //floor - Math.floor() rounds a number DOWN to the nearest integer ie.., if it is 4.9 then o/p will be 4
@@ -2246,7 +2253,7 @@ var couponCode = randomNumber.toFixed();
 console.log(couponCode);
 
 console.log(
-  "-------------------------------------------------------------------------------------"
+    "-------------------------------------------------------------------------------------"
 );
 
 /*
@@ -2325,14 +2332,14 @@ console.log(listOfObj);
 
 var objects = [];
 listOfObj.forEach(function (obj) {
-  objects.push({
-    label: obj.file_name,
-    name: obj.sys_id,
-  });
+    objects.push({
+        label: obj.file_name,
+        name: obj.sys_id,
+    });
 });
 
 var outputs = {
-  data: objects,
+    data: objects,
 };
 
 console.log(outputs);
@@ -2459,9 +2466,9 @@ consoelName(naming)
 */
 
 var user_markets =
-  "ddf06ecedbbe79d0c531a9c813961984,d6d662c6dbfe79d0c531a9c81396198b,5d9f06ecedbbe79d0c531a9c813961983,15f06ecedbbe79d0c531a9c813961985";
+    "ddf06ecedbbe79d0c531a9c813961984,d6d662c6dbfe79d0c531a9c81396198b,5d9f06ecedbbe79d0c531a9c813961983,15f06ecedbbe79d0c531a9c813961985";
 var g10_markets =
-  "ddf06ecedbbe79d0c531a9c813961984,1df06ecedbbe79d0c531a9c813961987,95f06ecedbbe79d0c531a9c813961988,d9f06ecedbbe79d0c531a9c813961983";
+    "ddf06ecedbbe79d0c531a9c813961984,1df06ecedbbe79d0c531a9c813961987,95f06ecedbbe79d0c531a9c813961988,d9f06ecedbbe79d0c531a9c813961983";
 
 var splitUserMarkets = user_markets.split(",");
 var splitG10Markets = g10_markets.split(",");
@@ -2471,13 +2478,191 @@ var splitG10Markets = g10_markets.split(",");
 
 var group = "";
 for (var i = 0; i < splitG10Markets.length; i++) {
-  console.log(splitG10Markets[i]);
-  if (splitUserMarkets.indexOf(splitG10Markets[i]) >= 0) {
-    group = "G10";
-    break;
-  } else {
-    group = "user selected";
-  }
+    console.log(splitG10Markets[i]);
+    if (splitUserMarkets.indexOf(splitG10Markets[i]) >= 0) {
+        group = "G10";
+        break;
+    } else {
+        group = "user selected";
+    }
 }
 
 console.log(group);
+
+console.log('****************************************************************');
+
+/*
+
+Complete understanding of JSON.parse and JSON.stringify
+referrence code = AWS Code Creation
+
+
+stringify() takes a JavaScript object and then transforms it into a JSON string. 
+JSON. parse() takes a JSON string and then transforms it into a JavaScript object.
+
+*/
+
+var AWSPayload = {
+    "account_sensitivity": [
+      {
+        "label": "Standard",
+        "value": "standard"
+      },
+      {
+        "label": "Sensitive",
+        "value": "sensitive"
+      },
+      {
+        "label": "Highly Sensitive",
+        "value": "highly-sensitive"
+      }
+    ],
+    "aws_regions": [
+      {
+        "label": "US East (N. Virginia)",
+        "value": {
+          "aws_region": "us-east-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Europe (Paris)",
+        "value": {
+          "aws_region": "eu-west-3",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Europe (Ireland)",
+        "value": {
+          "aws_region": "eu-west-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Asia Pacific (Mumbai)",
+        "value": {
+          "aws_region": "ap-south-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "US East (Ohio)",
+        "value": {
+          "aws_region": "us-east-2",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Europe (Milan)",
+        "value": {
+          "aws_region": "eu-south-1",
+          "aws_azs": "3"
+        }
+      }
+    ],
+    "stla_regions": [
+        {
+          "label": "North America",
+          "value": {
+            "na": [
+              "us-east-1",
+              "us-east-2"
+            ]
+          }
+        },
+        {
+          "label": "Enlarged Europe",
+          "value": {
+            "ee": [
+              "eu-west-1",
+              "eu-west-3",
+              "eu-south-1"
+            ]
+          }
+        },
+        {
+          "label": "ex-FCA Fiat",
+          "value": {
+            "eu": [
+              "eu-west-1",
+              "eu-west-3",
+              "eu-south-1"
+            ]
+          }
+        },
+        {
+          "label": "India/Asia/Pacific",
+          "value": {
+            "ap": [
+              "ap-south-1"
+            ]
+          }
+        }
+      ]
+}
+
+console.log('AWS Payload: ' + AWSPayload); //AWS Payload: [object Object]
+console.log(typeof AWSPayload) //object
+
+
+/*
+var response_stringify = JSON.stringify(AWSPayload);
+console.log("response_stringify: ", response_stringify);
+
+o/p : 
+response_stringify:  {"account_sensitivity":[{"label":"Standard","value":"standard"},{"label":"Sensitive","value":"sensitive"},
+{"label":"Highly Sensitive","value":"highly-sensitive"}],"aws_regions":[{"label":"US East (N. Virginia)","value":{"aws_region":"us-east-1","aws_azs":"3"}},
+{"label":"Europe (Paris)","value":{"aws_region":"eu-west-3","aws_azs":"3"}},{"label":"Europe (Ireland)","value":{"aws_region":"eu-west-1","aws_azs":"3"}},
+{"label":"Asia Pacific (Mumbai)","value":{"aws_region":"ap-south-1","aws_azs":"3"}},{"label":"US East (Ohio)","value":{"aws_region":"us-east-2","aws_azs":"3"}},
+{"label":"Europe (Milan)","value":{"aws_region":"eu-south-1","aws_azs":"3"}}]}
+
+
+var response_parse = JSON.parse(response_stringify);
+console.log('response_parse: ' +response_parse);
+
+o/p : 
+response_parse: [object Object]
+
+
+forEach will take parameters as a value, index, actual arr
+
+AWSPayload.stla_regions.forEach(function processRegion(stlaregion, d, c){
+    console.log(stlaregion + ' - ' + d + ' - ' + c);
+})
+
+o/p : 
+
+[object Object] - 0 - [object Object],[object Object],[object Object],[object Object]
+[object Object] - 1 - [object Object],[object Object],[object Object],[object Object]
+[object Object] - 2 - [object Object],[object Object],[object Object],[object Object]
+[object Object] - 3 - [object Object],[object Object],[object Object],[object Object]
+
+
+AWSPayload.stla_regions.forEach(function processRegion(stlaRegion){
+    console.log(stlaRegion);
+})
+
+o/p :
+{label: 'North America', value: {…}}
+{label: 'Enlarged Europe', value: {…}}
+{label: 'ex-FCA Fiat', value: {…}}
+{label: 'India/Asia/Pacific', value: {…}}
+
+*/
+
+
+console.log(AWSPayload.aws_regions)
+
+//forEach will take parameters as a value, index, actual arr
+
+var dynamicRegionMap = {};
+
+AWSPayload.stla_regions.forEach(function processRegion(stlaRegion){
+    console.log(stlaRegion.aws_regions);
+    if(stlaRegion.aws_regions){
+        dynamicRegionMap[stlaRegion.value] = stlaRegion.aws_regions;
+    }
+})
+
+console.log(dynamicRegionMap)
