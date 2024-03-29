@@ -2503,103 +2503,100 @@ JSON. parse() takes a JSON string and then transforms it into a JavaScript objec
 */
 
 var AWSPayload = {
-    "account_sensitivity": [
-      {
-        "label": "Standard",
-        "value": "standard"
-      },
-      {
-        "label": "Sensitive",
-        "value": "sensitive"
-      },
-      {
-        "label": "Highly Sensitive",
-        "value": "highly-sensitive"
-      }
+    "account_sensitivity": [{
+            "label": "Standard",
+            "value": "standard"
+        },
+        {
+            "label": "Sensitive",
+            "value": "sensitive"
+        },
+        {
+            "label": "Highly Sensitive",
+            "value": "highly-sensitive"
+        }
     ],
-    "aws_regions": [
-      {
-        "label": "US East (N. Virginia)",
-        "value": {
-          "aws_region": "us-east-1",
-          "aws_azs": "3"
+    "aws_regions": [{
+            "label": "US East (N. Virginia)",
+            "value": {
+                "aws_region": "us-east-1",
+                "aws_azs": "3"
+            }
+        },
+        {
+            "label": "Europe (Paris)",
+            "value": {
+                "aws_region": "eu-west-3",
+                "aws_azs": "3"
+            }
+        },
+        {
+            "label": "Europe (Ireland)",
+            "value": {
+                "aws_region": "eu-west-1",
+                "aws_azs": "3"
+            }
+        },
+        {
+            "label": "Asia Pacific (Mumbai)",
+            "value": {
+                "aws_region": "ap-south-1",
+                "aws_azs": "3"
+            }
+        },
+        {
+            "label": "US East (Ohio)",
+            "value": {
+                "aws_region": "us-east-2",
+                "aws_azs": "3"
+            }
+        },
+        {
+            "label": "Europe (Milan)",
+            "value": {
+                "aws_region": "eu-south-1",
+                "aws_azs": "3"
+            }
         }
-      },
-      {
-        "label": "Europe (Paris)",
-        "value": {
-          "aws_region": "eu-west-3",
-          "aws_azs": "3"
-        }
-      },
-      {
-        "label": "Europe (Ireland)",
-        "value": {
-          "aws_region": "eu-west-1",
-          "aws_azs": "3"
-        }
-      },
-      {
-        "label": "Asia Pacific (Mumbai)",
-        "value": {
-          "aws_region": "ap-south-1",
-          "aws_azs": "3"
-        }
-      },
-      {
-        "label": "US East (Ohio)",
-        "value": {
-          "aws_region": "us-east-2",
-          "aws_azs": "3"
-        }
-      },
-      {
-        "label": "Europe (Milan)",
-        "value": {
-          "aws_region": "eu-south-1",
-          "aws_azs": "3"
-        }
-      }
     ],
-    "stla_regions": [
-        {
-          "label": "North America",
-          "value": {
-            "na": [
-              "us-east-1",
-              "us-east-2"
-            ]
-          }
+    "stla_regions": [{
+            "label": "North America",
+            "value": {
+                "na": [
+                    "us-east-1",
+                    "us-east-2"
+                ]
+            }
         },
         {
-          "label": "Enlarged Europe",
-          "value": {
-            "ee": [
-              "eu-west-1",
-              "eu-west-3",
-              "eu-south-1"
-            ]
-          }
+            "label": "Enlarged Europe",
+            "value": {
+                "ee": [
+                    "eu-west-1",
+                    "eu-west-3",
+                    "eu-south-1"
+                ]
+            }
         },
         {
-          "label": "ex-FCA Fiat",
-          "value": {
-            "eu": [
-              "eu-west-1",
-              "eu-west-3",
-              "eu-south-1"
-            ]
-          }
+            "label": "ex-FCA Fiat",
+            "value": {
+                "eu": [
+                    "eu-west-1",
+                    "eu-west-3",
+                    "eu-south-1"
+                ]
+            }
         },
         {
-          "label": "India/Asia/Pacific",
-          "value": {
-            "ap": [
-              "ap-south-1"
-            ]
-          }
+            "label": "India/Asia/Pacific",
+            "value": {
+                "ap": [
+                    "ap-south-1"
+                ]
+            }
         }
-      ]
+    ]
 }
 
 console.log('AWS Payload: ' + AWSPayload); //AWS Payload: [object Object]
@@ -2649,9 +2646,6 @@ o/p :
 {label: 'ex-FCA Fiat', value: {…}}
 {label: 'India/Asia/Pacific', value: {…}}
 
-*/
-
-
 console.log(AWSPayload.aws_regions)
 
 //forEach will take parameters as a value, index, actual arr
@@ -2666,3 +2660,46 @@ AWSPayload.stla_regions.forEach(function processRegion(stlaRegion){
 })
 
 console.log(dynamicRegionMap)
+
+
+*/
+
+
+var resObj = {
+    "answer": true,
+    "retVal": "b4fd7c8437201000deeabfc8bcbe5dc1"
+};
+
+var resPayload = JSON.stringify(resObj);
+console.log(resPayload)
+
+var objPayload = JSON.parse(resPayload);
+
+console.log(objPayload);
+
+objPayload.answer = false;
+console.log(objPayload);
+
+
+
+function test(a) {
+    //console.log(a);
+    return a;
+}
+
+console.log(test(43))
+
+var test1, test2;
+test1 = true
+test2 = true
+
+var retValue = (test1 == true && test2 == false);
+console.log(retValue);
+
+console.log('----------------------------------------------------------------------------------------');
+
+var name1 = '';
+
+console.log(!name1); // ! - it will check whether it is empty
+console.log(typeof !name1)
+console.log(!!name1); // !! - value should be present always
