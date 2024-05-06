@@ -2500,8 +2500,6 @@ referrence code = AWS Code Creation
 stringify() takes a JavaScript object and then transforms it into a JSON string. 
 JSON. parse() takes a JSON string and then transforms it into a JavaScript object.
 
-*/
-
 var AWSPayload = {
     "account_sensitivity": [{
             "label": "Standard",
@@ -2602,6 +2600,10 @@ var AWSPayload = {
 console.log('AWS Payload: ' + AWSPayload); //AWS Payload: [object Object]
 console.log(typeof AWSPayload) //object
 
+*/
+
+
+
 
 /*
 var response_stringify = JSON.stringify(AWSPayload);
@@ -2661,10 +2663,6 @@ AWSPayload.stla_regions.forEach(function processRegion(stlaRegion){
 
 console.log(dynamicRegionMap)
 
-
-*/
-
-
 var resObj = {
     "answer": true,
     "retVal": "b4fd7c8437201000deeabfc8bcbe5dc1"
@@ -2703,3 +2701,759 @@ var name1 = '';
 console.log(!name1); // ! - it will check whether it is empty
 console.log(typeof !name1)
 console.log(!!name1); // !! - value should be present always
+
+
+
+var caseContent = {
+    transaction_reason : 'test-1',
+    incumbent_name : 'test-2',
+    incumbent_first_name : 'test-3',
+    incumbent_id : ''
+}
+
+for(result in caseContent){
+    console.log(`Keys = ${result} and the Values = ${caseContent[result]}`)
+}
+
+
+"script-sd" : "(function () {   var str = JSON.stringify(current.request_item.variables.ccs_short_description.toString());    return str.substring(1,str.length-1); }());",
+"script-reqFor" : "(function () {   var str = JSON.stringify(current.request_item.u_requested_for.toString());    return str.substring(1,str.length-1); }());"
+
+var caseContent = [];
+
+var incumName = 'incumbent_name';
+var incumFName = 'incumbent_first_name';
+var currentIncumCareer = 'current_incumbent_career';
+var targetPosTitle = '';
+
+var emptyVariable = [incumName, incumFName, currentIncumCareer, targetPosTitle];
+
+for (let i = 0; i < emptyVariable.length; i++) {
+    if (emptyVariable[i] === '') {
+        // do nothing
+    } else {
+        caseContent.push(emptyVariable[i]);
+    }
+}
+
+console.log(caseContent);
+
+
+var test = {
+    "import_set": "ISET0010005",
+    "staging_table": "u_imp_set_soap_kalil_v1",
+    "result": [
+        {
+            "transform_map": "Imp set SOAP Kalil V1",
+            "table": "incident",
+            "display_name": "number",
+            "display_value": "INC0010031",
+            "record_link": "https://dev247558.service-now.com/api/now/table/incident/17d9ee0c83e542104ab7f2a6feaad3c8",
+            "status": "inserted",
+            "sys_id": "17d9ee0c83e542104ab7f2a6feaad3c8"
+        }
+    ]
+}
+
+console.log(test.result[0].sys_id)
+
+-----------------------------------------
+
+var AoO = [];
+var sendPayload = {"EMPLID":"1000456","BEGIN_DT":"2024-04-30","END_DT":"2024-05-01","HOURS":"12","CASE_NUMBER":"HR123456","USER_ID":"Integration.PPL_Payroll.API"}
+
+var payload = AoO.push(sendPayload);
+console.log(AoO)
+console.log(JSON.stringify(AoO)) // Array of object
+
+
+
+*/
+
+//AWS cat item to compute a AWS region based on Stellantis region
+
+
+var mapRegionToAWSRegions = {
+    'na': [
+        'us-east-1'
+    ],
+    'ee': [
+        'eu-west-1',
+        'eu-west-3'
+    ],
+    'eu': [
+        'eu-west-1',
+        'eu-west-3'
+    ]
+};
+
+console.log(mapRegionToAWSRegions['na']);  // returns ['us-east-1']
+
+//this is what we get from AWS side, query API and then we are storing it in variables
+
+var responseJSON = {
+    "account_sensitivity": [
+      {
+        "label": "Standard",
+        "value": "standard"
+      },
+      {
+        "label": "Sensitive",
+        "value": "sensitive"
+      },
+      {
+        "label": "Highly Sensitive",
+        "value": "highly-sensitive"
+      }
+    ],
+    "aws_regions": [
+      {
+        "label": "US East (N. Virginia)",
+        "value": {
+          "aws_region": "us-east-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "US East (Ohio)",
+        "value": {
+          "aws_region": "us-east-2",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Europe (Paris)",
+        "value": {
+          "aws_region": "eu-west-3",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Europe (Ireland)",
+        "value": {
+          "aws_region": "eu-west-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Europe (Milan)",
+        "value": {
+          "aws_region": "eu-south-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "Asia Pacific (Mumbai)",
+        "value": {
+          "aws_region": "ap-south-1",
+          "aws_azs": "3"
+        }
+      },
+      {
+        "label": "South America (São Paulo)",
+        "value": {
+          "aws_region": "sa-east-1",
+          "aws_azs": "3"
+        }
+      }
+    ],
+    "environments": [
+      {
+        "label": "Proof of Concept",
+        "value": "poc"
+      },
+      {
+        "label": "Development",
+        "value": "dev"
+      },
+      {
+        "label": "Testing",
+        "value": "test"
+      },
+      {
+        "label": "Staging",
+        "value": "stage"
+      },
+      {
+        "label": "Production",
+        "value": "prod"
+      }
+    ],
+    "business_unit": [
+      {
+        "label": "Bank",
+        "value": "bank"
+      },
+      {
+        "label": "Communication",
+        "value": "communication"
+      },
+      {
+        "label": "Finance & Accounting",
+        "value": "finance-accounting"
+      },
+      {
+        "label": "General Services",
+        "value": "general-services"
+      },
+      {
+        "label": "Human Resources",
+        "value": "human-resources"
+      },
+      {
+        "label": "Infrastructure & Network",
+        "value": "infrastructure-network"
+      },
+      {
+        "label": "Manufacturing",
+        "value": "manufacturing"
+      },
+      {
+        "label": "Middle-East & Africa",
+        "value": "middle-east-africa"
+      },
+      {
+        "label": "Operation",
+        "value": "operation"
+      },
+      {
+        "label": "Parts & Services",
+        "value": "parts-services"
+      },
+      {
+        "label": "Purchase",
+        "value": "purchase"
+      },
+      {
+        "label": "Region & Cooperation support",
+        "value": "region-cooperation-support"
+      },
+      {
+        "label": "Compliance, Legal and Risk",
+        "value": "compliance-legal-and-risk"
+      },
+      {
+        "label": "Sales & Marketing",
+        "value": "sales-marketing"
+      },
+      {
+        "label": "Shared-Services",
+        "value": "shared-services"
+      },
+      {
+        "label": "Software",
+        "value": "software"
+      },
+      {
+        "label": "Supply Chain",
+        "value": "supply-chain"
+      },
+      {
+        "label": "Regional Operations",
+        "value": "rope"
+      },
+      {
+        "label": "Finance",
+        "value": "finance"
+      },
+      {
+        "label": "Global Service Delivery Platform",
+        "value": "gsdp"
+      },
+      {
+        "label": "Motorsport",
+        "value": "motorsport"
+      },
+      {
+        "label": "Teic.h",
+        "value": "teich"
+      },
+      {
+        "label": "Mobilisights SpA",
+        "value": "mobilisights"
+      },
+      {
+        "label": "Customer Experience",
+        "value": "customer-experience"
+      },
+      {
+        "label": "Harman",
+        "value": "harman"
+      },
+      {
+        "label": "Virtual Engineering Workbench",
+        "value": "vew"
+      },
+      {
+        "label": "Global Analytics & Data Products",
+        "value": "gadp"
+      },
+      {
+        "label": "Global Analytics & Data Products - NA",
+        "value": "gadp_na"
+      },
+      {
+        "label": "Connected Vehicles Cloud Platform",
+        "value": "cvcp"
+      },
+      {
+        "label": "Aritificial Intelligence",
+        "value": "ai"
+      },
+      {
+        "label": "Cloudmade",
+        "value": "cloudmade"
+      },
+      {
+        "label": "Connected Vehicle Program",
+        "value": "cvp"
+      },
+      {
+        "label": "COSMOS",
+        "value": "cosmos"
+      },
+      {
+        "label": "ADAS",
+        "value": "adas"
+      },
+      {
+        "label": "Cyber Security",
+        "value": "cyber-security"
+      },
+      {
+        "label": "TMTS",
+        "value": "tmts"
+      },
+      {
+        "label": "Kinetic",
+        "value": "kinetic"
+      },
+      {
+        "label": "NVEV",
+        "value": "nvev"
+      },
+      {
+        "label": "Digital Transformation",
+        "value": "digital-transformation"
+      },
+      {
+        "label": "End-User & Executive Support",
+        "value": "end-user-executive-support"
+      },
+      {
+        "label": "Engineering",
+        "value": "engineering"
+      },
+      {
+        "label": "Eurasia BO",
+        "value": "eurasia-bo"
+      }
+    ],
+    "it_domain": [
+      {
+        "label": "CDA | Corporate Data & Analytics",
+        "value": "cda"
+      },
+      {
+        "label": "CGCA | Change & Capability",
+        "value": "cgca"
+      },
+      {
+        "label": "PSC | Purchasing & Supply Chain",
+        "value": "psc"
+      },
+      {
+        "label": "ROPE | Regional Operations",
+        "value": "rope"
+      },
+      {
+        "label": "SMKG | Sales & Marketing",
+        "value": "smkg"
+      },
+      {
+        "label": "SPP | Strategy Planning & Performance",
+        "value": "spp"
+      },
+      {
+        "label": "SWX | Software",
+        "value": "swx"
+      },
+      {
+        "label": "CISO | Cyber-Security",
+        "value": "ciso"
+      },
+      {
+        "label": "CORF | Corporate Functions",
+        "value": "corf"
+      },
+      {
+        "label": "CVDP | Connected Vehicle & Digital Product",
+        "value": "cvdp"
+      },
+      {
+        "label": "EDSC | Engineering, Design, Swx & Customer experience",
+        "value": "edsc"
+      },
+      {
+        "label": "GDP | Global Digital Platforms",
+        "value": "gdp"
+      },
+      {
+        "label": "GTO | Global Technology & Operations",
+        "value": "gto"
+      },
+      {
+        "label": "MFG | Manufacturing",
+        "value": "mfg"
+      },
+      {
+        "label": "PS | Parts & Services",
+        "value": "ps"
+      }
+    ],
+    "legal_entity": [
+      {
+        "label": "Stellantis Europe S.p.A",
+        "value": "xp"
+      },
+      {
+        "label": "Stellantis South America S.p.A",
+        "value": "xf_sa"
+      },
+      {
+        "label": "Mobilisights SpA",
+        "value": "mobilisights"
+      },
+      {
+        "label": "Maserati",
+        "value": "maserati"
+      },
+      {
+        "label": "FCA North America",
+        "value": "xf_na"
+      },
+      {
+        "label": "FCA ITEM SpA",
+        "value": "xf_item"
+      },
+      {
+        "label": "FCA ITALY SpA",
+        "value": "xf_italy"
+      },
+      {
+        "label": "India Asia Pacific",
+        "value": "iap"
+      },
+      {
+        "label": "Free2Move SAS",
+        "value": "f2m"
+      },
+      {
+        "label": "TEICH",
+        "value": "teich"
+      }
+    ],
+    "network_sizes": [
+      {
+        "label": "S (small)",
+        "value": "network_size_s"
+      },
+      {
+        "label": "M (medium)",
+        "value": "network_size_m"
+      },
+      {
+        "label": "L (large)",
+        "value": "network_size_l"
+      },
+      {
+        "label": "XL (extra-large)",
+        "value": "network_size_xl"
+      }
+    ],
+    "network_types": [
+      {
+        "label": "Standalone",
+        "value": "standalone"
+      },
+      {
+        "label": "On-Prem Extension Shared",
+        "value": "onprem_ext_shared"
+      },
+      {
+        "label": "On-Prem Extension Dedicated",
+        "value": "onprem_ext_dedicated"
+      },
+      {
+        "label": "Without Network resources",
+        "value": "none"
+      }
+    ],
+    "stla_regions": [
+      {
+        "value": "na",
+        "aws_regions": [
+          "us-east-1",
+          "us-east-2"
+        ],
+        "label": "North America"
+      },
+      {
+        "value": "ee",
+        "aws_regions": [
+          "eu-west-3",
+          "eu-west-1",
+          "eu-south-1"
+        ],
+        "label": "Enlarged Europe xP"
+      },
+      {
+        "value": "eu",
+        "aws_regions": [
+          "eu-west-3",
+          "eu-west-1",
+          "eu-south-1"
+        ],
+        "label": "Enlarged Europe xF"
+      },
+      {
+        "value": "ap",
+        "aws_regions": [
+          "ap-south-1"
+        ],
+        "label": "India/Asia/Pacific"
+      },
+      {
+        "value": "sa",
+        "aws_regions": [
+          "sa-east-1"
+        ],
+        "label": "South America"
+      }
+    ],
+    "request_types": [
+      {
+        "label": "General AWS Account",
+        "value": "general"
+      },
+      {
+        "label": "CVCP",
+        "value": "cvcp"
+      },
+      {
+        "label": "Project Lagoon",
+        "value": "lg"
+      },
+      {
+        "label": "Teic.h",
+        "value": "teich"
+      },
+      {
+        "label": "Kinetic",
+        "value": "kinetic"
+      },
+      {
+        "label": "SWX (Shared Services)",
+        "value": "swx_sharedservices"
+      },
+      {
+        "label": "GADP",
+        "value": "gadp"
+      },
+      {
+        "label": "GLZ Internal Use Only",
+        "value": "glz_internal"
+      },
+      {
+        "label": "HPC",
+        "value": "hpc"
+      }
+    ]
+  }
+
+var response = {};
+
+console.log(`Response check for JSON : ${responseJSON}`);
+response = responseJSON;
+/*
+Response check for JSON : [object Object]
+*/
+console.log(`Response check for JSON-string : ${JSON.stringify(response)}`);
+/*
+it will print the whole object as JSON string from the response
+
+{
+    "stla_regions": [{
+        "value": "na",
+        "aws_regions": ["us-east-1", "us-east-2"],
+        "label": "North America"
+    }, {
+        "value": "ee",
+        "aws_regions": ["eu-west-3", "eu-west-1", "eu-south-1"],
+        "label": "Enlarged Europe xP"
+    }, {
+        "value": "eu",
+        "aws_regions": ["eu-west-3", "eu-west-1", "eu-south-1"],
+        "label": "Enlarged Europe xF"
+    }, {
+        "value": "ap",
+        "aws_regions": ["ap-south-1"],
+        "label": "India/Asia/Pacific"
+    }, {
+        "value": "sa",
+        "aws_regions": ["sa-east-1"],
+        "label": "South America"
+    }, {
+        "aws_regions": ["sa-east-2"],
+        "label": "South America - 2"
+    }]
+}
+
+*/
+
+
+var useDynamicMap = false;
+var dynamicRegionMap = {};
+
+if (response) {
+    response.stla_regions.forEach(function processRegion(stlaRegion, index, accArr) {
+        console.log(`STLA Region forEach first parameter ${JSON.stringify(stlaRegion)}`);
+        /*
+        STLA Region forEach first parameter {"value":"na","aws_regions":["us-east-1","us-east-2"],"label":"North America"}
+        STLA Region forEach first parameter {"value":"ee","aws_regions":["eu-west-3","eu-west-1","eu-south-1"],"label":"Enlarged Europe xP"}
+        STLA Region forEach first parameter {"value":"eu","aws_regions":["eu-west-3","eu-west-1","eu-south-1"],"label":"Enlarged Europe xF"}
+        STLA Region forEach first parameter {"value":"ap","aws_regions":["ap-south-1"],"label":"India/Asia/Pacific"}
+        STLA Region forEach first parameter {"value":"sa","aws_regions":["sa-east-1"],"label":"South America"}
+        STLA Region forEach first parameter {"aws_regions":["sa-east-2"],"label":"South America - 2"}
+        */
+        
+        if (stlaRegion.aws_regions) {
+            // do nothing
+            useDynamicMap = true
+            dynamicRegionMap[stlaRegion.value] = stlaRegion.aws_regions;
+            //eg.., {"na":["us-east-1","us-east-2"] --> this bracket denotes placing a key in the object
+            //dynamicRegionMap is an object it will store it as an Javascript object
+        }
+    })
+}
+
+console.log(`Dynamic Region map contains : ${JSON.stringify(dynamicRegionMap)}`);
+/*
+Dynamic Region map contains : {"na":["us-east-1","us-east-2"],"ee":["eu-west-3","eu-west-1","eu-south-1"],
+"eu":["eu-west-3","eu-west-1","eu-south-1"],"ap":["ap-south-1"],"sa":["sa-east-1"],"undefined":["sa-east-2"]}
+*/
+
+if(useDynamicMap){
+
+    console.log(`Static map : ${JSON.stringify(mapRegionToAWSRegions)}`);
+    /*
+    Static map : {"na":["us-east-1"],"ee":["eu-west-1","eu-west-3"],"eu":["eu-west-1","eu-west-3"]}
+    */
+    console.log(`Dynamic map : ${JSON.stringify(dynamicRegionMap)}`);
+    /*
+    Dynamic map : {"na":["us-east-1","us-east-2"],"ee":["eu-west-3","eu-west-1","eu-south-1"],
+    "eu":["eu-west-3","eu-west-1","eu-south-1"],"ap":["ap-south-1"],"sa":["sa-east-1"],"undefined":["sa-east-2"]}
+    */
+
+    mapRegionToAWSRegions = dynamicRegionMap;
+}
+
+
+var lcRegion = 'na'.toLocaleLowerCase();
+var effectiveRegion = mapRegionToAWSRegions[lcRegion] ? lcRegion : 'eu';
+
+console.log(`Effective  region is: ${JSON.stringify(response.aws_regions)}`);
+
+if(response.aws_regions){
+    response.aws_regions.forEach(function processChoices(region){
+        console.log(`AWS Region[forEach - processChoices - region] is ${JSON.stringify(region)} ::: ${region.value.aws_region}`);
+        /*
+AWS Region[forEach - processChoices - region] is {"label":"US East (N. Virginia)","value":{"aws_region":"us-east-1","aws_azs":"3"}} ::: us-east-1
+AWS Region[forEach - processChoices - region] is {"label":"US East (Ohio)","value":{"aws_region":"us-east-2","aws_azs":"3"}} ::: us-east-2
+AWS Region[forEach - processChoices - region] is {"label":"Europe (Paris)","value":{"aws_region":"eu-west-3","aws_azs":"3"}} ::: eu-west-3
+AWS Region[forEach - processChoices - region] is {"label":"Europe (Ireland)","value":{"aws_region":"eu-west-1","aws_azs":"3"}} ::: eu-west-1
+AWS Region[forEach - processChoices - region] is {"label":"Europe (Milan)","value":{"aws_region":"eu-south-1","aws_azs":"3"}} ::: eu-south-1
+AWS Region[forEach - processChoices - region] is {"label":"Asia Pacific (Mumbai)","value":{"aws_region":"ap-south-1","aws_azs":"3"}} ::: ap-south-1
+AWS Region[forEach - processChoices - region] is {"label":"South America (São Paulo)","value":{"aws_region":"sa-east-1","aws_azs":"3"}} ::: sa-east-1
+*/
+    })
+}
+
+
+var varToDataMap = {
+  // variable_name: objectKey
+  request_type: 'request_types',
+  environment: 'environments',
+  stla_region: 'stla_regions',
+  //		aws_region: 'aws_regions',  // Requires special handlng, performed after stla_region selection
+  aws_network: 'network_types',
+  aws_network_size: 'network_sizes',
+  sensitivity: 'account_sensitivity',
+  stla_legal_entity: 'legal_entity',
+  stla_it_domain: 'it_domain',
+  stla_business_unit: 'business_unit'
+};
+
+for(var varName in varToDataMap){
+  console.log(`Key to map is : ${varName} and the value is : ${varToDataMap[varName]}`);
+  /*
+Key to map is : request_type and the value is : request_types
+Key to map is : environment and the value is : environments
+  */
+  console.log(`Map the values from AWS choices in varToDataMap : ${JSON.stringify(response[varToDataMap[varName]])}`);
+  /*
+this is for request type from AWS choice(responseJson)
+
+Map the values from AWS choices in varToDataMap: [{
+  "label": "General AWS Account",
+  "value": "general"
+}, {
+  "label": "CVCP",
+  "value": "cvcp"
+}, {
+  "label": "Project Lagoon",
+  "value": "lg"
+}, {
+  "label": "Teic.h",
+  "value": "teich"
+}, {
+  "label": "Kinetic",
+  "value": "kinetic"
+}, {
+  "label": "SWX (Shared Services)",
+  "value": "swx_sharedservices"
+}, {
+  "label": "GADP",
+  "value": "gadp"
+}, {
+  "label": "GLZ Internal Use Only",
+  "value": "glz_internal"
+}, {
+  "label": "HPC",
+  "value": "hpc"
+}]
+
+----------------------------------------------
+
+this is for environments from AWS choice(responseJson)
+
+Map the values from AWS choices in varToDataMap: [{
+  "label": "Proof of Concept",
+  "value": "poc"
+}, {
+  "label": "Development",
+  "value": "dev"
+}, {
+  "label": "Testing",
+  "value": "test"
+}, {
+  "label": "Staging",
+  "value": "stage"
+}, {
+  "label": "Production",
+  "value": "prod"
+}]
+
+  */
+}
+
